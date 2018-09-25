@@ -24,7 +24,7 @@ public class guessNum {
             }
             if (pAnswer.equals("higher"))
             {
-                llimit = cGuess;
+                llimit = cGuess + 1;
                 cGuess = (int)(Math.random() * (ulimit - llimit + 1)) + llimit;
                 System.out.println("My guess is " + cGuess + ". (Type higher, lower or correct.)");
                 new Scanner(System.in);
