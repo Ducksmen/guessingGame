@@ -17,15 +17,14 @@ public class guessNum {
             String pAnswer = input.nextLine();
             if (pAnswer.equals("lower"))
             {
-                ulimit = cGuess;
-                cGuess = (int)(Math.random() * (ulimit - llimit + 1)) + llimit;
+                cGuess = ((cGuess - llimit) / 2) + cGuess;
                 System.out.println("My guess is " + cGuess + ". (Type higher, lower or correct.)");
                 new Scanner(System.in);
             }
             if (pAnswer.equals("higher"))
             {
-                llimit = cGuess + 1;
-                cGuess = (int)(Math.random() * (ulimit - llimit + 1)) + llimit;
+                cGuess = ((ulimit - cGuess) / 2) + llimit;
+                llimit = cGuess;
                 System.out.println("My guess is " + cGuess + ". (Type higher, lower or correct.)");
                 new Scanner(System.in);
             }
