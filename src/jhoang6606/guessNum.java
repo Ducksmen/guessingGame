@@ -12,8 +12,11 @@ public class guessNum {
         int llimit = 0;
         int ulimit = 101;
         int numGuess = 1;
-        System.out.println("My guess is " + cGuess + ". (Type higher, lower or correct.)");
-        while ( p == true)
+        String name = "";
+        System.out.println("Before we begin tell me your name.");
+        name = input.nextLine();
+        System.out.println("My guess is " + cGuess + ". Is that correct, " + name + "? (Type higher, lower or correct.)");
+        while ( p)
         {
             String pAnswer = input.nextLine();
             if (pAnswer.equals("lower"))
@@ -21,7 +24,7 @@ public class guessNum {
                 numGuess++;
                 ulimit = cGuess;
                 cGuess = ((ulimit - llimit) / 2) + llimit;
-                System.out.println("My guess is " + cGuess + ". (Type higher, lower or correct.)");
+                System.out.println("My guess is " + cGuess + ". Is that correct, " + name + "? (Type higher, lower or correct.)");
                 new Scanner(System.in);
             }
             if (pAnswer.equals("higher"))
@@ -29,18 +32,18 @@ public class guessNum {
                 numGuess++;
                 llimit = cGuess;
                 cGuess = ((ulimit - cGuess) / 2) + llimit;
-                System.out.println("My guess is " + cGuess + ". (Type higher, lower or correct.)");
+                System.out.println("My guess is " + cGuess + ". Is that correct, " + name + "? (Type higher, lower or correct.)");
                 new Scanner(System.in);
             }
             if (pAnswer.equals("correct"))
             {
                 System.out.println("That was too easy.");
-                System.out.println("I got your number in " + numGuess + " guess(es).");
+                System.out.println("I got your number in " + numGuess + " guess(es), " + name + ".");
                 p = false;
             }
             if (!pAnswer.equals("lower") && !pAnswer.equals("higher") && !pAnswer.equals("correct"))
             {
-                System.out.println("Please type in a correct input.");
+                System.out.println("Please type in a correct input, " + name + ".");
             }
         }
     }
