@@ -9,29 +9,38 @@ public class guessNum {
         Boolean p = true;
         Scanner input = new Scanner(System.in);
         int cGuess = 50;
-        int llimit = 1;
-        int ulimit = 100;
+        int llimit = 0;
+        int ulimit = 101;
+        int numGuess = 1;
         System.out.println("My guess is " + cGuess + ". (Type higher, lower or correct.)");
         while ( p == true)
         {
             String pAnswer = input.nextLine();
             if (pAnswer.equals("lower"))
             {
-                cGuess = ((cGuess - llimit) / 2) + cGuess;
+                numGuess++;
+                ulimit = cGuess;
+                cGuess = ((ulimit - llimit) / 2) + llimit;
                 System.out.println("My guess is " + cGuess + ". (Type higher, lower or correct.)");
                 new Scanner(System.in);
             }
             if (pAnswer.equals("higher"))
             {
-                cGuess = ((ulimit - cGuess) / 2) + llimit;
+                numGuess++;
                 llimit = cGuess;
+                cGuess = ((ulimit - cGuess) / 2) + llimit;
                 System.out.println("My guess is " + cGuess + ". (Type higher, lower or correct.)");
                 new Scanner(System.in);
             }
             if (pAnswer.equals("correct"))
             {
                 System.out.println("That was too easy.");
+                System.out.println("I got your number in " + numGuess + " guess(es).");
                 p = false;
+            }
+            if (!pAnswer.equals("lower") && !pAnswer.equals("higher") && !pAnswer.equals("correct"))
+            {
+                System.out.println("Please type in a correct input.");
             }
         }
     }
